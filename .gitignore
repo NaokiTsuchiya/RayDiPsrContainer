@@ -1,0 +1,12 @@
+/build
+/tests/tmp/compile
+/vendor/
+/.phpmd.result-cache.php
+/.phpunit.result.cache
+/.phpcs-cache
+/composer.lock
+/coverage.xml
+/phpcs.xml
+/phpunit.xml
+/phpstan.neon
+/psalm.xml
