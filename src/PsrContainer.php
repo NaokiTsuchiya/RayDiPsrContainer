@@ -37,8 +37,8 @@ final class PsrContainer implements ContainerInterface
             $instance = $this->injector->getInstance(...$parsedId);
         } catch (RayDiUnbound $e) {
             throw new Unbound($e->getMessage(), 0, $e);
-        } catch (Throwable $e) { // @codeCoverageIgnoreStart
-            throw new ContainerException($e->getMessage(), 0, $e); // @codeCoverageIgnoreEnd
+        } catch (Throwable $e) {
+            throw new ContainerException($e->getMessage(), 0, $e);
         }
 
         return $instance;

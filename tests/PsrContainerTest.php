@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NaokiTsuchiya\RayDiPsrContainer;
 
 use NaokiTsuchiya\RayDiPsrContainer\Attribute\Left;
+use NaokiTsuchiya\RayDiPsrContainer\Exception\ContainerException;
 use NaokiTsuchiya\RayDiPsrContainer\Exception\InvalidIdException;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\NotFoundExceptionInterface;
@@ -100,6 +101,14 @@ final class PsrContainerTest extends TestCase
         self::expectExceptionMessage('id must not be only a separator.');
 
         $this->injector->get(IdentityParser::NAME_SEPARATOR);
+    }
+
+    /** @test */
+    public function getWithExceptionThrowInjector(): void
+    {
+        self::expectException(ContainerException::class);
+
+        (new PsrContainer(new FakeExceptionThrowInjector()))->get(FakeRobotInterface::class);
     }
 
     /** @test */
