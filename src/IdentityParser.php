@@ -14,7 +14,7 @@ use function strpos;
 use function substr;
 
 /** @internal */
-class IdentityParser
+final class IdentityParser
 {
     public const NAME_SEPARATOR = '#';
     private const ERROR_ID_EMPTY = 'id must not be empty.';

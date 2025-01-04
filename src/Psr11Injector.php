@@ -12,7 +12,7 @@ use Ray\Di\InjectorInterface;
 use Ray\Di\Name;
 use Throwable;
 
-class Psr11Injector implements ContainerInterface, InjectorInterface
+final class Psr11Injector implements ContainerInterface, InjectorInterface
 {
     private IdentityParser $identityParser;
 
