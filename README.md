@@ -30,11 +30,8 @@ $instance = $container->get(FooInterface::class);
 // Check if a binding exists
 $isAvailable = $container->has(FooInterface::class);
 
-// Retrieve an instance using the getInstance method
-$instanceFromGetInstance = $container->getInstance(FooInterface::class);
-
 // Using get() method with IdentityStringGenerator
-// Compatible with getInstance(Foo::class, NAME::class);
+// Compatible with Injector's getInstance method.
 $namedInstance = $container->get(IdentityStringGenerator::generate(Foo::class, NAME::class));
 ```
 

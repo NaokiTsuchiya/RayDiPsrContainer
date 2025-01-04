@@ -35,15 +35,6 @@ final class Psr11InjectorTest extends TestCase
     }
 
     /** @test */
-    public function getInstance(): void
-    {
-        $actual = $this->injector->getInstance(FakeRobotInterface::class);
-
-        self::assertInstanceOf(FakeRobotInterface::class, $actual);
-        self::assertInstanceOf(FakeRobot::class, $actual);
-    }
-
-    /** @test */
     public function get(): void
     {
         $actual = $this->injector->get(FakeRobotInterface::class);

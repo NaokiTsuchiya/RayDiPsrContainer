@@ -9,22 +9,15 @@ use NaokiTsuchiya\RayDiPsrContainer\Exception\Unbound;
 use Psr\Container\ContainerInterface;
 use Ray\Di\Exception\Unbound as RayDiUnbound;
 use Ray\Di\InjectorInterface;
-use Ray\Di\Name;
 use Throwable;
 
-final class Psr11Injector implements ContainerInterface, InjectorInterface
+final class Psr11Injector implements ContainerInterface
 {
     private IdentityParser $identityParser;
 
     public function __construct(private InjectorInterface $injector)
     {
         $this->identityParser = new IdentityParser();
-    }
-
-    /** {@inheritDoc} */
-    public function getInstance($interface, $name = Name::ANY)
-    {
-        return $this->injector->getInstance($interface, $name);
     }
 
     /**
@@ -41,7 +34,7 @@ final class Psr11Injector implements ContainerInterface, InjectorInterface
         $parsedId = $this->identityParser->parse($id);
 
         try {
-            $instance = $this->getInstance(...$parsedId);
+            $instance = $this->injector->getInstance(...$parsedId);
         } catch (RayDiUnbound $e) {
             throw new Unbound($e->getMessage(), 0, $e);
         } catch (Throwable $e) { // @codeCoverageIgnoreStart
@@ -54,7 +47,7 @@ final class Psr11Injector implements ContainerInterface, InjectorInterface
     public function has(string $id): bool
     {
         try {
-            $this->getInstance(...$this->identityParser->parse($id));
+            $this->injector->getInstance(...$this->identityParser->parse($id));
         } catch (Throwable) {
             return false;
         }
