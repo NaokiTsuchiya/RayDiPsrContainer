@@ -13,11 +13,11 @@ use Ray\Di\Injector;
 
 use const DIRECTORY_SEPARATOR;
 
-final class Psr11InjectorTest extends TestCase
+final class PsrContainerTest extends TestCase
 {
     private const TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'compile';
 
-    private Psr11Injector $injector;
+    private PsrContainer $injector;
 
     public static function setUpBeforeClass(): void
     {
@@ -29,7 +29,7 @@ final class Psr11InjectorTest extends TestCase
     protected function setUp(): void
     {
         $injector = new Injector(new FakeModule());
-        $this->injector = new Psr11Injector($injector);
+        $this->injector = new PsrContainer($injector);
 
         parent::setUp();
     }

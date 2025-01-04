@@ -16,12 +16,12 @@
     <issueHandlers>
         <MixedAssignment>
             <errorLevel type="suppress">
-                <file name="src/Psr11Injector.php" />
+                <file name="src/PsrContainer.php" />
             </errorLevel>
         </MixedAssignment>
         <UnusedClass>
             <errorLevel type="suppress">
-                <referencedClass name="NaokiTsuchiya\RayDiPsrContainer\Psr11Injector" />
+                <referencedClass name="NaokiTsuchiya\RayDiPsrContainer\PsrContainer" />
             </errorLevel>
         </UnusedClass>
     </issueHandlers>

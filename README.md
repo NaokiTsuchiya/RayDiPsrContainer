@@ -12,7 +12,7 @@ This library leverages the dependency injection capabilities of Ray.DI while pro
 ```php
 <?php
 
-use NaokiTsuchiya\RayDiPsrContainer\Psr11Injector;
+use NaokiTsuchiya\RayDiPsrContainer\PsrContainer;
 use NaokiTsuchiya\RayDiPsrContainer\IdentityStringGenerator;
 use Ray\Di\Injector;
 
@@ -22,7 +22,7 @@ require_once 'vendor/autoload.php';
 $injector = new Injector(new FooModule());
 
 // Create a Psr11Injector
-$container = new Psr11Injector($injector);
+$container = new PsrContainer($injector);
 
 // Retrieve an instance
 $instance = $container->get(FooInterface::class);

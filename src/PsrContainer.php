@@ -11,7 +11,7 @@ use Ray\Di\Exception\Unbound as RayDiUnbound;
 use Ray\Di\InjectorInterface;
 use Throwable;
 
-final class Psr11Injector implements ContainerInterface
+final class PsrContainer implements ContainerInterface
 {
     private IdentityParser $identityParser;
 
