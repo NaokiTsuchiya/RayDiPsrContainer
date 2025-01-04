@@ -7,7 +7,7 @@ namespace NaokiTsuchiya\RayDiPsrContainer;
 use NaokiTsuchiya\RayDiPsrContainer\Attribute\Left;
 use NaokiTsuchiya\RayDiPsrContainer\Attribute\Right;
 
-class FakeRobot implements FakeRobotInterface
+final class FakeRobot implements FakeRobotInterface
 {
     public function __construct(
         #[Left]

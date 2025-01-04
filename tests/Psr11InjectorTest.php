@@ -13,7 +13,7 @@ use Ray\Di\Injector;
 
 use const DIRECTORY_SEPARATOR;
 
-class Psr11InjectorTest extends TestCase
+final class Psr11InjectorTest extends TestCase
 {
     private const TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'compile';
 

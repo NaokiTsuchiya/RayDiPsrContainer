@@ -8,7 +8,7 @@ use NaokiTsuchiya\RayDiPsrContainer\Attribute\Left;
 use NaokiTsuchiya\RayDiPsrContainer\Attribute\Right;
 use Ray\Di\AbstractModule;
 
-class FakeModule extends AbstractModule
+final class FakeModule extends AbstractModule
 {
 
     protected function configure()

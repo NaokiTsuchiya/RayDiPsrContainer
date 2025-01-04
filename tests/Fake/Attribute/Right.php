@@ -9,6 +9,6 @@ use Ray\Di\Di\Qualifier;
 
 #[Attribute]
 #[Qualifier]
-class Right
+final class Right
 {
 }
