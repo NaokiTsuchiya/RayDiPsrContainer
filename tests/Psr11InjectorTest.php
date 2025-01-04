@@ -55,7 +55,7 @@ class Psr11InjectorTest extends TestCase
     /** @test */
     public function getWithInterfaceAndName(): void
     {
-        $actual = $this->injector->get(FakeLegInterface::class . Psr11Injector::NAME_SEPARATOR . Left::class);
+        $actual = $this->injector->get(FakeLegInterface::class . IdentityParser::NAME_SEPARATOR . Left::class);
 
         self::assertInstanceOf(FakeLegInterface::class, $actual);
         self::assertInstanceOf(FakeLeg::class, $actual);
@@ -64,7 +64,7 @@ class Psr11InjectorTest extends TestCase
     /** @test */
     public function getWithOnlyName(): void
     {
-        $actual = $this->injector->get(Psr11Injector::NAME_SEPARATOR . 'name');
+        $actual = $this->injector->get(IdentityParser::NAME_SEPARATOR . 'name');
 
         self::assertSame('instance', $actual);
     }
@@ -101,7 +101,7 @@ class Psr11InjectorTest extends TestCase
         self::expectException(InvalidIdException::class);
         self::expectExceptionMessage('id must not be only a separator.');
 
-        $this->injector->get(Psr11Injector::NAME_SEPARATOR);
+        $this->injector->get(IdentityParser::NAME_SEPARATOR);
     }
 
     /** @test */
