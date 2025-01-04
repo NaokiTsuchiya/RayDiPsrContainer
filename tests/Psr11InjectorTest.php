@@ -55,7 +55,12 @@ class Psr11InjectorTest extends TestCase
     /** @test */
     public function getWithInterfaceAndName(): void
     {
-        $actual = $this->injector->get(FakeLegInterface::class . IdentityParser::NAME_SEPARATOR . Left::class);
+        $actual = $this->injector->get(
+            IdentityStringGenerator::generate(
+                FakeLegInterface::class,
+                Left::class,
+            ),
+        );
 
         self::assertInstanceOf(FakeLegInterface::class, $actual);
         self::assertInstanceOf(FakeLeg::class, $actual);
@@ -64,7 +69,9 @@ class Psr11InjectorTest extends TestCase
     /** @test */
     public function getWithOnlyName(): void
     {
-        $actual = $this->injector->get(IdentityParser::NAME_SEPARATOR . 'name');
+        $actual = $this->injector->get(
+            IdentityStringGenerator::generate('', 'name'),
+        );
 
         self::assertSame('instance', $actual);
     }

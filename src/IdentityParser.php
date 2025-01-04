@@ -13,6 +13,7 @@ use function sprintf;
 use function strpos;
 use function substr;
 
+/** @internal */
 class IdentityParser
 {
     public const NAME_SEPARATOR = '#';
