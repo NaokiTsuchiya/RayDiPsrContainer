@@ -2,8 +2,9 @@ name: Coding Standards
 
 on:
   push:
-    paths-ignore:
-      - '**.md'
+    branches:
+      - main
+      - '*.x'
   pull_request:
   workflow_dispatch:
 
