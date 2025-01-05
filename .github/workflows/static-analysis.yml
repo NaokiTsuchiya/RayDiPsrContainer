@@ -77,7 +77,7 @@ jobs:
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run Psalm
-        run: "$TOOLS_BIN_PATH/psalm" --show-info=false --output-format=checkstyle --shepherd | cs2pr
+        run: $TOOLS_BIN_PATH/psalm --show-info=false --output-format=checkstyle --shepherd | cs2pr
 
   static-analysis-phpmd:
     name: PHPMD
@@ -108,7 +108,7 @@ jobs:
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run PHP Mess Detector
-        run: "$TOOLS_BIN_PATH/phpmd" src github phpmd.xml
+        run: $TOOLS_BIN_PATH/phpmd src github phpmd.xml
 
   static-analysis-composer-require-checker:
     name: ComposerRequireChecker
