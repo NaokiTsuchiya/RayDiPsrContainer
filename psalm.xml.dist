@@ -3,7 +3,7 @@
     errorLevel="1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor-bin/tools/vendor/vimeo/psalm/config.xsd"
     findUnusedBaselineEntry="true"
     findUnusedCode="true"
 >
@@ -22,6 +22,7 @@
         <UnusedClass>
             <errorLevel type="suppress">
                 <referencedClass name="NaokiTsuchiya\RayDiPsrContainer\PsrContainer" />
+                <referencedClass name="NaokiTsuchiya\RayDiPsrContainer\IdentityStringGenerator" />
             </errorLevel>
         </UnusedClass>
     </issueHandlers>
