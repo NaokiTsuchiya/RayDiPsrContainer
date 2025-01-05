@@ -10,7 +10,7 @@ on:
 env:
   PHP_VERSION: '8.3'
   TOOLS_BIN_PATH: 'vendor-bin/tool/vendor/bin'
-  LOCK_FILE: ${{ hashFiles('vendor-bin/tools/composer.lock') }}
+  LOCK_FILE: 'vendor-bin/tools/composer.lock'
 
 jobs:
   static-analysis-phpstan:
@@ -25,7 +25,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "$PHP_VERSION"
+          php-version: ${{ env.PHP_VERSION }}
           tools: cs2pr
           coverage: none
 
@@ -37,14 +37,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: "${{ runner.os }}-composer-$LOCK_FILE"
+          key: ${{ runner.os }}-composer-${{ hashFiles(env.LOCK_FILE) }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run PHPStan
-        run: $TOOLS_BIN_PATH/phpstan analyse -c phpstan.neon.dist --no-progress --no-interaction --error-format=checkstyle | cs2pr
+        run: ${{ env.TOOLS_BIN_PATH }}/phpstan analyse -c phpstan.neon.dist --no-progress --no-interaction --error-format=checkstyle | cs2pr
 
   static-analysis-psalm:
     name: Psalm
@@ -58,7 +58,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "$PHP_VERSION"
+          php-version: ${{ env.PHP_VERSION }}
           tools: cs2pr
           coverage: none
 
@@ -70,14 +70,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: "${{ runner.os }}-composer-$LOCK_FILE"
+          key: ${{ runner.os }}-composer-${{ hashFiles(env.LOCK_FILE) }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run Psalm
-        run: $TOOLS_BIN_PATH/psalm --show-info=false --output-format=checkstyle --shepherd | cs2pr
+        run: ${{ env.TOOLS_BIN_PATH }}/psalm --show-info=false --output-format=checkstyle --shepherd | cs2pr
 
   static-analysis-phpmd:
     name: PHPMD
@@ -91,7 +91,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "$PHP_VERSION"
+          php-version: ${{ env.PHP_VERSION }}
 
       - name: Get composer cache directory
         id: composer-cache
@@ -101,14 +101,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: "${{ runner.os }}-composer-$LOCK_FILE"
+          key: ${{ runner.os }}-composer-${{ hashFiles(env.LOCK_FILE) }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run PHP Mess Detector
-        run: $TOOLS_BIN_PATH/phpmd src github phpmd.xml
+        run: ${{ env.TOOLS_BIN_PATH }}/phpmd src github phpmd.xml
 
   static-analysis-composer-require-checker:
     name: ComposerRequireChecker
@@ -122,7 +122,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "$PHP_VERSION"
+          php-version: ${{ env.PHP_VERSION }}
           coverage: none
           tools: composer-require-checker
 
