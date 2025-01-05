@@ -9,7 +9,7 @@ on:
 
 env:
   PHP_VERSION: '8.3'
-  TOOLS_BIN_PATH: 'vendor-bin/tool/vendor/bin'
+  TOOLS_BIN_PATH: 'vendor-bin/tools/vendor/bin'
   LOCK_FILE: 'vendor-bin/tools/composer.lock'
 
 jobs:
