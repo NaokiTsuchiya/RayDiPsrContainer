@@ -7,6 +7,9 @@ on:
         description: 'Version to release'
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -44,7 +47,7 @@ jobs:
             exit 1
           fi
 
-          if [[ ! "${VERSION}" =~ ^"${BRANCH_MAJOR_VERSION}\." ]]; then
+          if [[ ! "${VERSION}" =~ ^${BRANCH_MAJOR_VERSION}\. ]]; then
             echo "Error: Branch '${GITHUB_REF_NAME}' can only release versions starting with '${BRANCH_MAJOR_VERSION}.'"
             exit 1
           fi
