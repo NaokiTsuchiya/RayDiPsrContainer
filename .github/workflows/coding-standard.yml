@@ -2,11 +2,46 @@ name: Coding Standards
 
 on:
   push:
+    paths-ignore:
+      - '**.md'
   pull_request:
   workflow_dispatch:
 
+env:
+  PHP_VERSION: '8.3'
+  TOOLS_BIN_PATH: 'vendor-bin/tool/vendor/bin'
+  LOCK_FILE: ${{ hashFiles('vendor-bin/tools/composer.lock') }}
+
 jobs:
-  cs:
-    uses: ray-di/.github/.github/workflows/coding-standards.yml@v1
-    with:
-      php_version: 8.3
+  static-analysis-phpstan:
+    name: Coding Standards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "$PHP_VERSION"
+          tools: cs2pr
+          coverage: none
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: "${{ runner.os }}-composer-$LOCK_FILE"
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run PHP_CodeSniffer
+        run: "$TOOLS_BIN_PATH/phpcs" -q --no-colors --report=checkstyle src tests | cs2pr
