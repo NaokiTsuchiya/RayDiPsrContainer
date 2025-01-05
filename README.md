@@ -1,5 +1,8 @@
 # naoki-tsuchiya/ray-di-psr-container
 
+![Continuous-Integration](https://github.com//NaokiTsuchiya/RayDiPsrContainer/actions/workflows/continuous-integration.yml/badge.svg?branch=0.x)
+[![codecov](https://codecov.io/github/NaokiTsuchiya/RayDiPsrContainer/graph/badge.svg?token=SWXC68YZVC)](https://codecov.io/github/NaokiTsuchiya/RayDiPsrContainer)
+
 `naoki-tsuchiya/ray-di-psr-container` is a package that implements the [PSR-11 (ContainerInterface)](https://www.php-fig.org/psr/psr-11/) and integrates seamlessly with [Ray.DI](https://ray-di.github.io/).
 This library leverages the dependency injection capabilities of Ray.DI while providing a PSR-11 compatible interface.
 
