@@ -42,6 +42,7 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
+
       - name: Run PHPStan
         run: "$TOOLS_BIN_PATH/phpstan" analyse -c phpstan.neon.dist --no-progress --no-interaction --error-format=checkstyle | cs2pr
 
