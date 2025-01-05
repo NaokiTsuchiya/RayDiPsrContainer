@@ -1,6 +1,7 @@
 /build
 /tests/tmp/compile
 /vendor/
+/vendor-bin/*/vendor
 /.phpmd.result-cache.php
 /.phpunit.result.cache
 /.phpcs-cache
