@@ -80,5 +80,8 @@
             "target-directory": "vendor-bin",
             "forward-command": true
         }
+    },
+    "provide": {
+        "psr/container-implementation": "^2.0"
     }
 }
