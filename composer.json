@@ -1,6 +1,6 @@
 {
     "name": "naoki-tsuchiya/ray-di-psr-container",
-    "description": "",
+    "description": "An implementation of PSR-11 container for Ray.Di",
     "license": "MIT",
     "authors": [
         {
