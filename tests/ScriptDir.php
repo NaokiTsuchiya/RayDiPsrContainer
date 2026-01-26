@@ -29,9 +29,7 @@ final class ScriptDir
 
     private function deleteFiles(string $path): void
     {
-        $files = array_filter((array) glob($path . DIRECTORY_SEPARATOR . '*'), static function ($file) {
-            return is_string($file);
-        });
+        $files = array_filter((array) glob($path . DIRECTORY_SEPARATOR . '*'), is_string(...));
 
         foreach ($files as $file) {
             is_dir($file) ? $this->deleteFiles($file) : unlink($file);
