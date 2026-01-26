@@ -6,6 +6,6 @@ namespace NaokiTsuchiya\RayDiPsrContainer\Exception;
 
 use Psr\Container\NotFoundExceptionInterface;
 
-class Unbound extends \Ray\Di\Exception\Unbound implements NotFoundExceptionInterface, ExceptionInterface
+final class Unbound extends \Ray\Di\Exception\Unbound implements NotFoundExceptionInterface, ExceptionInterface
 {
 }
