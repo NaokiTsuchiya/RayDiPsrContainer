@@ -7,10 +7,13 @@ namespace NaokiTsuchiya\RayDiPsrContainer;
 use NaokiTsuchiya\RayDiPsrContainer\Attribute\Left;
 use NaokiTsuchiya\RayDiPsrContainer\Exception\ContainerException;
 use NaokiTsuchiya\RayDiPsrContainer\Exception\InvalidIdException;
+use PHPUnit\Framework\Attributes\RequiresPhp;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\NotFoundExceptionInterface;
+use Ray\Compiler\CompiledInjector;
 use Ray\Compiler\CompileInjector;
+use Ray\Compiler\Compiler;
 use Ray\Di\Injector;
 
 use const DIRECTORY_SEPARATOR;
@@ -113,10 +116,24 @@ final class PsrContainerTest extends TestCase
     }
 
     #[Test]
+    #[RequiresPhp('< 8.5')]
     public function getWithCompileInjector(): void
     {
         $injector = new CompileInjector(self::TMP_DIR, new FakeLazyModule());
-        $actual = $injector->getInstance(FakeRobotInterface::class);
+        $container = new PsrContainer($injector);
+        $actual = $container->get(FakeRobotInterface::class);
+
+        self::assertInstanceOf(FakeRobotInterface::class, $actual);
+        self::assertInstanceOf(FakeRobot::class, $actual);
+    }
+
+    #[Test]
+    public function getWithCompiledInjector(): void
+    {
+        (new Compiler())->compile(new FakeModule(), self::TMP_DIR);
+        $injector = new CompiledInjector(self::TMP_DIR);
+        $container = new PsrContainer($injector);
+        $actual = $container->get(FakeRobotInterface::class);
 
         self::assertInstanceOf(FakeRobotInterface::class, $actual);
         self::assertInstanceOf(FakeRobot::class, $actual);
