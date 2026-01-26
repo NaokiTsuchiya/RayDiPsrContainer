@@ -8,11 +8,5 @@ parameters:
   polluteScopeWithLoopInitialAssignments: true
   polluteScopeWithAlwaysIterableForeach: true
   polluteScopeWithBlock: true
-  ignoreErrors:
-    -
-        messages:
-            - '#Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)#'
-        identifier: staticMethod.alreadyNarrowedType
-        path: tests
 includes:
 	- phar://phpstan.phar/conf/bleedingEdge.neon
