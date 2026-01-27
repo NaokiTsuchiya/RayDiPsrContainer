@@ -1,5 +1,5 @@
 /build
-/tests/tmp/compile
+/tests/tmp/
 /vendor/
 /vendor-bin/*/vendor
 /.phpmd.result-cache.php

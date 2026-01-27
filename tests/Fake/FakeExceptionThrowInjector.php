@@ -11,7 +11,7 @@ use Ray\Di\Name;
 final class FakeExceptionThrowInjector implements InjectorInterface
 {
     /** {@inheritDoc} */
-    public function getInstance($interface, $name = Name::ANY)
+    public function getInstance($interface, $name = Name::ANY): never
     {
         throw new Exception('This injector throws exception every time.');
     }

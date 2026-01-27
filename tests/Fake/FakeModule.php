@@ -11,7 +11,7 @@ use Ray\Di\AbstractModule;
 final class FakeModule extends AbstractModule
 {
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->bind(FakeRobotInterface::class)->to(FakeRobot::class);
         $this->bind(FakeLegInterface::class)->annotatedWith(Left::class)->to(FakeLeg::class);

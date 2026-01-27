@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace NaokiTsuchiya\RayDiPsrContainer;
 
 use Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 final class IdentityStringGeneratorTest extends TestCase
 {
-    /**
-     * @param array{interface: string, name?: string} $params
-     *
-     * @test
-     * @dataProvider paramDataProvider
-     */
+    /** @param array{interface: string, name?: string} $params */
+    #[DataProvider('paramDataProvider')]
+    #[Test]
     public function generate(array $params, string $expected): void
     {
         $actual = IdentityStringGenerator::generate(...$params);
@@ -22,7 +21,7 @@ final class IdentityStringGeneratorTest extends TestCase
         self::assertSame($expected, $actual);
     }
 
-    public function paramDataProvider(): Generator
+    public static function paramDataProvider(): Generator
     {
         yield 'only class-string interface' => [
             'params' => [

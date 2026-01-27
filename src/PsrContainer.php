@@ -6,6 +6,7 @@ namespace NaokiTsuchiya\RayDiPsrContainer;
 
 use NaokiTsuchiya\RayDiPsrContainer\Exception\ContainerException;
 use NaokiTsuchiya\RayDiPsrContainer\Exception\Unbound;
+use Override;
 use Psr\Container\ContainerInterface;
 use Ray\Di\Exception\Unbound as RayDiUnbound;
 use Ray\Di\InjectorInterface;
@@ -29,6 +30,7 @@ final class PsrContainer implements ContainerInterface
      * - If `$id` does not include `#`, such as `Foo::class`, the interface will be `Foo::class` and the name will
      *   default to `Name::ANY`.
      */
+    #[Override]
     public function get(string $id)
     {
         $parsedId = $this->identityParser->parse($id);
@@ -44,6 +46,7 @@ final class PsrContainer implements ContainerInterface
         return $instance;
     }
 
+    #[Override]
     public function has(string $id): bool
     {
         try {
