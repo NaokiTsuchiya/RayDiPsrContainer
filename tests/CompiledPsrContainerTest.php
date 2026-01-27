@@ -15,22 +15,25 @@ use const DIRECTORY_SEPARATOR;
 
 final class CompiledPsrContainerTest extends TestCase
 {
-    private const TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'compile';
+    private const COMPILE_INJECTOR_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'compile-injector';
+    private const COMPILED_INJECTOR_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'compiled-injector';
 
     public static function setUpBeforeClass(): void
     {
-        (new ScriptDir())->init(self::TMP_DIR);
+        (new ScriptDir())->init(self::COMPILE_INJECTOR_DIR);
+        (new ScriptDir())->init(self::COMPILED_INJECTOR_DIR);
 
         parent::setUpBeforeClass();
     }
 
-    // CompileInjector from ray/compiler package is incompatible with PHP 8.5
-    // due to known issues with compiled injector behavior on this PHP version
+    /**
+     * CompileInjector is deprecated and does not support PHP 8.5
+     */
     #[Test]
     #[RequiresPhp('< 8.5')]
     public function getWithCompileInjector(): void
     {
-        $injector = new CompileInjector(self::TMP_DIR, new FakeLazyModule());
+        $injector = new CompileInjector(self::COMPILE_INJECTOR_DIR, new FakeLazyModule());
         $container = new PsrContainer($injector);
         $actual = $container->get(FakeRobotInterface::class);
 
@@ -41,8 +44,8 @@ final class CompiledPsrContainerTest extends TestCase
     #[Test]
     public function getWithCompiledInjector(): void
     {
-        (new Compiler())->compile(new FakeModule(), self::TMP_DIR);
-        $injector = new CompiledInjector(self::TMP_DIR);
+        (new Compiler())->compile(new FakeModule(), self::COMPILED_INJECTOR_DIR);
+        $injector = new CompiledInjector(self::COMPILED_INJECTOR_DIR);
         $container = new PsrContainer($injector);
         $actual = $container->get(FakeRobotInterface::class);
 
