@@ -1,15 +1,16 @@
 {
     "require-dev": {
-        "doctrine/coding-standard": "^14.0",
-        "squizlabs/php_codesniffer": "^4.0.1",
+        "doctrine/coding-standard": "14.0.0",
+        "squizlabs/php_codesniffer": "4.0.1",
         "phpmd/phpmd": "3.x-dev",
-        "phpstan/phpstan": "^2.1.37",
-        "vimeo/psalm": "^6.14.3",
-        "psalm/plugin-phpunit": "^0.19.5",
-        "phpstan/extension-installer": "^1.4.3",
-        "phpstan/phpstan-phpunit": "^2.0.12",
-        "phpstan/phpstan-strict-rules": "^2.0.7",
-        "pdepend/pdepend": "3.x-dev#9f22e169d1707a4e546077665eb7e9e9aef17e22"
+        "phpstan/phpstan": "2.1.37",
+        "vimeo/psalm": "6.14.3",
+        "psalm/plugin-phpunit": "0.19.5",
+        "phpstan/extension-installer": "1.4.3",
+        "phpstan/phpstan-phpunit": "2.0.12",
+        "phpstan/phpstan-strict-rules": "2.0.7",
+        "pdepend/pdepend": "3.x-dev#9f22e169d1707a4e546077665eb7e9e9aef17e22",
+        "rector/rector": "2.3.4"
     },
     "config": {
         "allow-plugins": {

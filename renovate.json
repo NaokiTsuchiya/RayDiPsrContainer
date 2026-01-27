@@ -1,0 +1,79 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "baseBranches": ["0.x"],
+  "labels": ["dependencies", "renovate"],
+  "packageRules": [
+    {
+      "description": "GitHub Actions の自動マージ",
+      "matchManagers": ["github-actions"],
+      "automerge": true
+    },
+    {
+      "description": "Coding Standard tools",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "doctrine/coding-standard",
+        "squizlabs/php_codesniffer"
+      ],
+      "groupName": "coding-standard",
+      "automerge": true
+    },
+    {
+      "description": "PHPStan packages",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "phpstan/phpstan",
+        "phpstan/phpstan-phpunit",
+        "phpstan/phpstan-strict-rules",
+        "phpstan/extension-installer"
+      ],
+      "groupName": "phpstan-packages",
+      "automerge": true
+    },
+    {
+      "description": "Psalm packages",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "vimeo/psalm",
+        "psalm/plugin-phpunit"
+      ],
+      "groupName": "psalm-packages",
+      "automerge": true
+    },
+    {
+      "description": "PHPMD packages",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "phpmd/phpmd",
+        "pdepend/pdepend"
+      ],
+      "groupName": "phpmd-packages",
+      "automerge": true
+    },
+    {
+      "description": "Rector refactoring tool",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "rector/rector"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "composer.json は更新しない（lowest テストのため）",
+      "matchFileNames": ["composer.json"],
+      "enabled": false
+    },
+    {
+      "description": "phpunit と composer-bin-plugin は更新する",
+      "matchFileNames": ["composer.json"],
+      "matchPackageNames": [
+        "phpunit/phpunit",
+        "bamarni/composer-bin-plugin"
+      ],
+      "enabled": true
+    }
+  ]
+}
