@@ -62,14 +62,6 @@
       "automerge": true
     },
     {
-      "description": "vendor-bin lockfile maintenance",
-      "matchFileNames": ["vendor-bin/**"],
-      "lockfileMaintenance": {
-        "enabled": true,
-        "automerge": true
-      }
-    },
-    {
       "description": "composer.json は更新しない（lowest テストのため）",
       "matchFileNames": ["composer.json"],
       "enabled": false
