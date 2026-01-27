@@ -62,6 +62,14 @@
       "automerge": true
     },
     {
+      "description": "vendor-bin lockfile maintenance",
+      "matchFileNames": ["vendor-bin/**"],
+      "lockfileMaintenance": {
+        "enabled": true,
+        "automerge": true
+      }
+    },
+    {
       "description": "require-dev のグループ化（手動マージ）",
       "matchDepTypes": ["require-dev"],
       "matchFileNames": ["composer.json"],
