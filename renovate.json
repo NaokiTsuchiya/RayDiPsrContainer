@@ -73,6 +73,15 @@
       "description": "composer.json は更新しない（lowest テストのため）",
       "matchFileNames": ["composer.json"],
       "enabled": false
+    },
+    {
+      "description": "phpunit と composer-bin-plugin は更新する",
+      "matchFileNames": ["composer.json"],
+      "matchPackageNames": [
+        "phpunit/phpunit",
+        "bamarni/composer-bin-plugin"
+      ],
+      "enabled": true
     }
   ]
 }
