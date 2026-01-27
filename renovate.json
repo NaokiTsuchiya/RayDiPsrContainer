@@ -1,6 +1,63 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended"
-    ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "baseBranches": ["0.x"],
+  "labels": ["dependencies", "renovate"],
+  "packageRules": [
+    {
+      "description": "GitHub Actions の自動マージ",
+      "matchManagers": ["github-actions"],
+      "automerge": true
+    },
+    {
+      "description": "Coding Standard tools",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "doctrine/coding-standard",
+        "squizlabs/php_codesniffer"
+      ],
+      "groupName": "coding-standard",
+      "automerge": true
+    },
+    {
+      "description": "PHPStan packages",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "phpstan/phpstan",
+        "phpstan/phpstan-phpunit",
+        "phpstan/phpstan-strict-rules",
+        "phpstan/extension-installer"
+      ],
+      "groupName": "phpstan-packages",
+      "automerge": true
+    },
+    {
+      "description": "Psalm packages",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "vimeo/psalm",
+        "psalm/plugin-phpunit"
+      ],
+      "groupName": "psalm-packages",
+      "automerge": true
+    },
+    {
+      "description": "Other static analysis tools",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "phpmd/phpmd",
+        "pdepend/pdepend"
+      ],
+      "groupName": "static-analysis-tools",
+      "automerge": true
+    },
+    {
+      "description": "require-dev のグループ化（手動マージ）",
+      "matchDepTypes": ["require-dev"],
+      "matchFileNames": ["composer.json"],
+      "groupName": "dev-dependencies"
+    }
+  ]
 }
