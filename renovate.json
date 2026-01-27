@@ -70,10 +70,9 @@
       }
     },
     {
-      "description": "require-dev のグループ化（手動マージ）",
-      "matchDepTypes": ["require-dev"],
+      "description": "composer.json は更新しない（lowest テストのため）",
       "matchFileNames": ["composer.json"],
-      "groupName": "dev-dependencies"
+      "enabled": false
     }
   ]
 }
