@@ -54,6 +54,14 @@
       "automerge": true
     },
     {
+      "description": "Rector refactoring tool",
+      "matchFileNames": ["vendor-bin/**"],
+      "matchPackageNames": [
+        "rector/rector"
+      ],
+      "automerge": true
+    },
+    {
       "description": "require-dev のグループ化（手動マージ）",
       "matchDepTypes": ["require-dev"],
       "matchFileNames": ["composer.json"],
