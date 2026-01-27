@@ -24,6 +24,8 @@ final class CompiledPsrContainerTest extends TestCase
         parent::setUpBeforeClass();
     }
 
+    // CompileInjector from ray/compiler package is incompatible with PHP 8.5
+    // due to known issues with compiled injector behavior on this PHP version
     #[Test]
     #[RequiresPhp('< 8.5')]
     public function getWithCompileInjector(): void
