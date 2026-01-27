@@ -3,17 +3,26 @@
   "extends": [
     "config:best-practices"
   ],
-  "baseBranches": ["0.x"],
-  "labels": ["dependencies", "renovate"],
+  "baseBranchPatterns": [
+    "0.x"
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
   "packageRules": [
     {
       "description": "GitHub Actions の自動マージ",
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "automerge": true
     },
     {
       "description": "Coding Standard tools",
-      "matchFileNames": ["vendor-bin/**"],
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
       "matchPackageNames": [
         "doctrine/coding-standard",
         "squizlabs/php_codesniffer"
@@ -23,7 +32,9 @@
     },
     {
       "description": "PHPStan packages",
-      "matchFileNames": ["vendor-bin/**"],
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
       "matchPackageNames": [
         "phpstan/phpstan",
         "phpstan/phpstan-phpunit",
@@ -35,7 +46,9 @@
     },
     {
       "description": "Psalm packages",
-      "matchFileNames": ["vendor-bin/**"],
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
       "matchPackageNames": [
         "vimeo/psalm",
         "psalm/plugin-phpunit"
@@ -45,7 +58,9 @@
     },
     {
       "description": "PHPMD packages",
-      "matchFileNames": ["vendor-bin/**"],
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
       "matchPackageNames": [
         "phpmd/phpmd",
         "pdepend/pdepend"
@@ -55,7 +70,9 @@
     },
     {
       "description": "Rector refactoring tool",
-      "matchFileNames": ["vendor-bin/**"],
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
       "matchPackageNames": [
         "rector/rector"
       ],
@@ -63,12 +80,16 @@
     },
     {
       "description": "composer.json は更新しない（lowest テストのため）",
-      "matchFileNames": ["composer.json"],
+      "matchFileNames": [
+        "composer.json"
+      ],
       "enabled": false
     },
     {
       "description": "phpunit と composer-bin-plugin は更新する",
-      "matchFileNames": ["composer.json"],
+      "matchFileNames": [
+        "composer.json"
+      ],
       "matchPackageNames": [
         "phpunit/phpunit",
         "bamarni/composer-bin-plugin"
