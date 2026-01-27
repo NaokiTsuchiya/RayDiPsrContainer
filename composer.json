@@ -47,7 +47,7 @@
         "sa": [
             "vendor-bin/tools/vendor/bin/phpstan analyse",
             "vendor-bin/tools/vendor/bin/psalm --show-info=true",
-            "vendor-bin/tools/vendor/bin/phpmd src text phpmd.xml --cache"
+            "vendor-bin/tools/vendor/bin/phpmd analyze --format text --ruleset phpmd.xml --cache src"
         ],
         "tests": [
             "@cs",
