@@ -1,6 +1,7 @@
 # https://php.watch/articles/composer-gitattributes
 
 # Exclude build/test files from archive
+/.claude                export-ignore
 /.github                export-ignore
 /tests                  export-ignore
 /vendor-bin             export-ignore
@@ -13,6 +14,7 @@
 /phpstan.neon.dist      export-ignore
 /phpunit.xml.dist       export-ignore
 /psalm.xml.dist         export-ignore
+/rector.php             export-ignore
 
 # Configure diff output for .php and .phar files.
 *.php diff=php
