@@ -4,6 +4,7 @@
 /vendor-bin/*/vendor
 /.phpmd.result-cache.php
 /.phpunit.result.cache
+/.phpunit.cache
 /.phpcs-cache
 /composer.lock
 /coverage.xml
