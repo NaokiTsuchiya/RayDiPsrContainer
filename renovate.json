@@ -10,6 +10,10 @@
     "dependencies",
     "renovate"
   ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "packageRules": [
     {
       "description": "GitHub Actions の自動マージ",
