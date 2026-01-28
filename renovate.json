@@ -10,7 +10,7 @@
     "dependencies",
     "renovate"
   ],
-  "lockfileMaintenance": {
+  "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
   },
