@@ -108,7 +108,7 @@
         "phpunit/phpunit"
       ],
       "enabled": true,
-      "rangeStrategy": "replace"
+      "rangeStrategy": "auto"
     }
   ]
 }
