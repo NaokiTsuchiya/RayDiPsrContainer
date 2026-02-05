@@ -90,12 +90,11 @@
       "enabled": false
     },
     {
-      "description": "phpunit と composer-bin-plugin は更新する",
+      "description": "composer-bin-plugin は更新する",
       "matchFileNames": [
         "composer.json"
       ],
       "matchPackageNames": [
-        "phpunit/phpunit",
         "bamarni/composer-bin-plugin"
       ],
       "enabled": true
