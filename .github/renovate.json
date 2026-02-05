@@ -90,15 +90,25 @@
       "enabled": false
     },
     {
-      "description": "phpunit と composer-bin-plugin は更新する",
+      "description": "composer-bin-plugin は更新する",
       "matchFileNames": [
         "composer.json"
       ],
       "matchPackageNames": [
-        "phpunit/phpunit",
         "bamarni/composer-bin-plugin"
       ],
       "enabled": true
+    },
+    {
+      "description": "phpunit は bump 戦略で更新する（widen を防止）",
+      "matchFileNames": [
+        "composer.json"
+      ],
+      "matchPackageNames": [
+        "phpunit/phpunit"
+      ],
+      "enabled": true,
+      "rangeStrategy": "bump"
     }
   ]
 }
