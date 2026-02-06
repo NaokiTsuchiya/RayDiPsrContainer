@@ -10,7 +10,7 @@
         "phpstan/phpstan-phpunit": "2.0.12",
         "phpstan/phpstan-strict-rules": "2.0.8",
         "pdepend/pdepend": "3.x-dev#9f22e169d1707a4e546077665eb7e9e9aef17e22",
-        "rector/rector": "2.3.5"
+        "rector/rector": "2.3.6"
     },
     "config": {
         "allow-plugins": {
