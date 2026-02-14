@@ -9,7 +9,6 @@
         "phpstan/extension-installer": "1.4.3",
         "phpstan/phpstan-phpunit": "2.0.16",
         "phpstan/phpstan-strict-rules": "2.0.10",
-        "pdepend/pdepend": "3.x-dev",
         "rector/rector": "2.3.6"
     },
     "config": {
@@ -17,5 +16,7 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
