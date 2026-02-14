@@ -61,15 +61,13 @@
       "automerge": true
     },
     {
-      "description": "PHPMD packages",
+      "description": "PHPMD",
       "matchFileNames": [
         "vendor-bin/**"
       ],
       "matchPackageNames": [
-        "phpmd/phpmd",
-        "pdepend/pdepend"
+        "phpmd/phpmd"
       ],
-      "groupName": "phpmd-packages",
       "automerge": true
     },
     {
