@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50f17544f5938b3de12a5dda4f160337",
+    "content-hash": "3bb834c85df135ce99407271eb211f36",
     "packages": [],
     "packages-dev": [
         {
@@ -1889,12 +1889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "9f22e169d1707a4e546077665eb7e9e9aef17e22"
+                "reference": "fca1f5fb1953df6713e35e06e10644e3caff7246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/9f22e169d1707a4e546077665eb7e9e9aef17e22",
-                "reference": "9f22e169d1707a4e546077665eb7e9e9aef17e22",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/fca1f5fb1953df6713e35e06e10644e3caff7246",
+                "reference": "fca1f5fb1953df6713e35e06e10644e3caff7246",
                 "shasum": ""
             },
             "require": {
@@ -1956,7 +1956,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-26T15:52:59+00:00"
+            "time": "2026-02-10T15:29:38+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
