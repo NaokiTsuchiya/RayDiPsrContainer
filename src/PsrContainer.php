@@ -29,6 +29,8 @@ final class PsrContainer implements ContainerInterface
      * - If `$id` starts with `#`, such as `#name`, the interface will be empty, and the name will be `name`.
      * - If `$id` does not include `#`, such as `Foo::class`, the interface will be `Foo::class` and the name will
      *   default to `Name::ANY`.
+     *
+     * @psalm-suppress InvalidAttribute Override is available in PHP 8.3+
      */
     #[Override]
     public function get(string $id)
@@ -46,6 +48,7 @@ final class PsrContainer implements ContainerInterface
         return $instance;
     }
 
+    /** @psalm-suppress InvalidAttribute Override is available in PHP 8.3+ */
     #[Override]
     public function has(string $id): bool
     {
