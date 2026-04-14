@@ -3,7 +3,7 @@
         "doctrine/coding-standard": "14.0.0",
         "squizlabs/php_codesniffer": "4.0.1",
         "phpmd/phpmd": "3.x-dev",
-        "phpstan/phpstan": "2.1.46",
+        "phpstan/phpstan": "2.1.47",
         "vimeo/psalm": "6.15.1",
         "psalm/plugin-phpunit": "0.19.5",
         "phpstan/extension-installer": "1.4.3",
