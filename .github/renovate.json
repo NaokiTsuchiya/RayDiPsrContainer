@@ -61,6 +61,16 @@
       "automerge": true
     },
     {
+      "description": "psalm/plugin-phpunit 0.20+ requires Psalm 7; pin until Psalm 7 stable",
+      "matchFileNames": [
+        "vendor-bin/**"
+      ],
+      "matchPackageNames": [
+        "psalm/plugin-phpunit"
+      ],
+      "allowedVersions": "<0.20"
+    },
+    {
       "description": "PHPMD",
       "matchFileNames": [
         "vendor-bin/**"
