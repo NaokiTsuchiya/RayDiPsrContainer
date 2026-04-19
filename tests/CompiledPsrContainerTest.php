@@ -30,7 +30,7 @@ final class CompiledPsrContainerTest extends TestCase
      * CompileInjector is deprecated and does not support PHP 8.5
      */
     #[Test]
-    #[RequiresPhp('< 8.5')]
+    #[RequiresPhp('< 8.5.0')]
     public function getWithCompileInjector(): void
     {
         $injector = new CompileInjector(self::COMPILE_INJECTOR_DIR, new FakeLazyModule());
