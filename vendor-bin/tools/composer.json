@@ -9,7 +9,7 @@
         "phpstan/extension-installer": "1.4.3",
         "phpstan/phpstan-phpunit": "2.0.18",
         "phpstan/phpstan-strict-rules": "2.0.12",
-        "rector/rector": "2.6.3"
+        "rector/rector": "2.6.4"
     },
     "config": {
         "allow-plugins": {
