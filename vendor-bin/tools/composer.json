@@ -4,7 +4,7 @@
         "squizlabs/php_codesniffer": "4.0.4",
         "phpmd/phpmd": "3.x-dev",
         "phpstan/phpstan": "2.2.14",
-        "vimeo/psalm": "6.17.1",
+        "vimeo/psalm": "6.17.2",
         "psalm/plugin-phpunit": "0.19.7",
         "phpstan/extension-installer": "1.4.3",
         "phpstan/phpstan-phpunit": "2.0.18",
