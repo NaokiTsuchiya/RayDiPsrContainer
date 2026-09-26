@@ -7,7 +7,7 @@
         "vimeo/psalm": "6.18.1",
         "psalm/plugin-phpunit": "0.19.7",
         "phpstan/extension-installer": "1.4.3",
-        "phpstan/phpstan-phpunit": "2.0.18",
+        "phpstan/phpstan-phpunit": "2.0.19",
         "phpstan/phpstan-strict-rules": "2.0.12",
         "rector/rector": "2.6.7"
     },
