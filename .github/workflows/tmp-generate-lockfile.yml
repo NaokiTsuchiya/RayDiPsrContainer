@@ -1,0 +1,32 @@
+# TEMPORARY: generates actions.lock and prints it to the log. Remove after use.
+name: Temp Generate Lockfile
+
+on:
+  push:
+    branches:
+      - claude/exciting-wright-8mfjws
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - run: gh extension install github/gh-actions-lock --pin v0.4.1
+      - run: |
+          gh actions-lock \
+            .github/workflows/coding-standard.yml \
+            .github/workflows/continuous-integration.yml \
+            .github/workflows/release.yml \
+            .github/workflows/static-analysis.yml \
+            .github/workflows/verify-lockfile.yml
+      - run: |
+          echo "----- BEGIN actions.lock -----"
+          cat .github/workflows/actions.lock
+          echo "----- END actions.lock -----"
