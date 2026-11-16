@@ -50,7 +50,6 @@ final class IdentityParser
             return ['interface' => '', 'name' => substr($id, 1)];
         }
 
-        /** @psalm-var non-empty-string $interface */ // False positive for ArgumentTypeCoercion
         $interface = substr($id, 0, $separatorPosition);
         $name = substr($id, $separatorPosition + 1);
 
@@ -59,8 +58,6 @@ final class IdentityParser
 
     /**
      * Validate the given interface and return it with the name.
-     *
-     * @param non-empty-string $interface
      *
      * @return array{interface: class-string, name: string}
      *
@@ -77,8 +74,6 @@ final class IdentityParser
 
     /**
      * Check if the string is a valid class or interface name.
-     *
-     * @param non-empty-string $interface
      *
      * @phpstan-assert-if-true class-string $interface
      */
