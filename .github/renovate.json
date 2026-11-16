@@ -3,6 +3,9 @@
   "extends": [
     "config:best-practices"
   ],
+  "ignorePresets": [
+    "helpers:pinGitHubActionDigests"
+  ],
   "baseBranchPatterns": [
     "0.x"
   ],
