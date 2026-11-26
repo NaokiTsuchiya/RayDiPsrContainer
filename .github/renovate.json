@@ -102,20 +102,20 @@
       "enabled": true
     },
     {
-      "description": "新しい PHP バージョンのサポート追加（require.php に \"|| ~8.x\" を追記する。CI マトリクスは composer.json から生成されるため自動で追従する）",
+      "description": "新しい PHP バージョンのサポート追加（require.php に \"|| ~8.x.0\" を追記する。~8.x だと 9.0 未満すべてに一致して widen されないため ~8.x.0 で書く。CI マトリクスは composer.json から生成されるため自動で追従する）",
       "matchFileNames": [
         "composer.json"
       ],
       "matchDepTypes": [
         "require"
       ],
-      "matchPackageNames": [
-        "php"
-      ],
       "enabled": true,
       "rangeStrategy": "widen",
       "commitMessageTopic": "PHP version support",
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": [
+        "php"
+      ]
     },
     {
       "description": "cs/sa ワークフローの PHP_VERSION 更新を 1 つの PR にまとめる",
