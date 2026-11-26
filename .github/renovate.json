@@ -116,6 +116,34 @@
       "rangeStrategy": "widen",
       "commitMessageTopic": "PHP version support",
       "automerge": true
+    },
+    {
+      "description": "cs/sa ワークフローの PHP_VERSION 更新を 1 つの PR にまとめる",
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchPackageNames": [
+        "containerbase/php-prebuild"
+      ],
+      "groupName": "PHP version for CI tools",
+      "automerge": true
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "ワークフローの PHP_VERSION（cs/sa 用）を最新の PHP マイナーバージョンに更新する",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "PHP_VERSION: '(?<currentValue>\\d+\\.\\d+)'"
+      ],
+      "depNameTemplate": "php",
+      "datasourceTemplate": "github-tags",
+      "packageNameTemplate": "containerbase/php-prebuild",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+)\\.\\d+$",
+      "versioningTemplate": "loose"
     }
   ]
 }
