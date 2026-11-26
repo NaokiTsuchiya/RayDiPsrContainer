@@ -100,6 +100,22 @@
         "bamarni/composer-bin-plugin"
       ],
       "enabled": true
+    },
+    {
+      "description": "新しい PHP バージョンのサポート追加（require.php に \"|| ~8.x\" を追記する。CI マトリクスは composer.json から生成されるため自動で追従する）",
+      "matchFileNames": [
+        "composer.json"
+      ],
+      "matchDepTypes": [
+        "require"
+      ],
+      "matchPackageNames": [
+        "php"
+      ],
+      "enabled": true,
+      "rangeStrategy": "widen",
+      "commitMessageTopic": "PHP version support",
+      "automerge": true
     }
   ]
 }
