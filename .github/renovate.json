@@ -100,6 +100,50 @@
         "bamarni/composer-bin-plugin"
       ],
       "enabled": true
+    },
+    {
+      "description": "新しい PHP バージョンのサポート追加（require.php に \"|| ~8.x.0\" を追記する。~8.x だと 9.0 未満すべてに一致して widen されないため ~8.x.0 で書く。CI マトリクスは composer.json から生成されるため自動で追従する）",
+      "matchFileNames": [
+        "composer.json"
+      ],
+      "matchDepTypes": [
+        "require"
+      ],
+      "enabled": true,
+      "rangeStrategy": "widen",
+      "commitMessageTopic": "PHP version support",
+      "automerge": true,
+      "matchDepNames": [
+        "php"
+      ]
+    },
+    {
+      "description": "cs/sa ワークフローの PHP_VERSION 更新を 1 つの PR にまとめる",
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchPackageNames": [
+        "containerbase/php-prebuild"
+      ],
+      "groupName": "PHP version for CI tools",
+      "automerge": true
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "ワークフローの PHP_VERSION（cs/sa 用）を最新の PHP マイナーバージョンに更新する",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "PHP_VERSION: '(?<currentValue>\\d+\\.\\d+)'"
+      ],
+      "depNameTemplate": "php",
+      "datasourceTemplate": "github-tags",
+      "packageNameTemplate": "containerbase/php-prebuild",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+)\\.\\d+$",
+      "versioningTemplate": "loose"
     }
   ]
 }
